@@ -22,8 +22,7 @@ Resources:
       Runtime: nodejs20.x
       AutoPublishAlias: live
       DeploymentPreference:
-        # Type: !If [IsProduction, "Canary10Percent5Minutes", "AllAtOnce"]
-        Type: !If [IsProduction, "AllAtOnce"]
+        Type: !If [IsProduction, "Canary10Percent5Minutes", "AllAtOnce"]
         Alarms: !If [IsProduction, [!Ref CanaryErrorsAlarm], []]
       Architectures:
         - x86_64
